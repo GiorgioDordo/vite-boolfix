@@ -14,7 +14,6 @@ export default {
 
 <template>
 <AppCards />
-<p>MAIN</p>
 </template>
 
 <style lang="scss" scoped>
