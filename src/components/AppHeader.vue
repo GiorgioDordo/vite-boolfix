@@ -14,7 +14,7 @@
         </ul>
 
         <div class="d-flex">
-            <input type="text" value="search">
+            <input type="text" placeholder="search">
         </div>
 </header>
 </template>
