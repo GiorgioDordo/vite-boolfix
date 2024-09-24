@@ -11,7 +11,7 @@ export default {
     data() {
         return{
             filmList: [],
-            apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=04f50f140d73590d28e01335e3f1bec8&query=ritorno+al+futuro',
+            apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=04f50f140d73590d28e01335e3f1bec8&query=star+wars',
         }
     },
     methods: {
