@@ -2,8 +2,14 @@
 export default {
     data () {
         return {
+            inputFilm: '',
         }
     },
+    methods: {
+        inputMessage(inputFilm) {
+            console.log(inputFilm);
+        },
+    }
 }
 </script>
 
@@ -20,7 +26,7 @@ export default {
         </ul>
 
         <div class="d-flex">
-            <input type="text" placeholder="search">
+            <input type="text" placeholder="search" @keyup.enter="inputMessage(inputFilm)" v-model="inputFilm">
         </div>
 </header>
 </template>
