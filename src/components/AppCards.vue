@@ -21,6 +21,9 @@ export default {
             <img :src="cardObject.poster_path" class="card-img-top" alt="">
         </article>
         <p>{{ cardObject.title }}</p>
+        <p>{{ cardObject.original_title }}</p>
+        <p>{{ cardObject.original_language }}</p>
+        <p>{{ cardObject.vote_average }}</p>
     </div>
 </template>
 

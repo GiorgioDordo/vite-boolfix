@@ -13,15 +13,17 @@ export default {
         return{
             store,
             filmList: [],
-            apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=04f50f140d73590d28e01335e3f1bec8&query=star+wars',
+            apiUrl: "https://api.themoviedb.org/3/search/movie",
+            apiKey: "04f50f140d73590d28e01335e3f1bec8",
         }
     },
     methods: {
-        getFilms () {
+        getMovies (query) {
+            console.log(query);
             axios.get(this.apiUrl, {
                 params: {
-                    num: 35,
-                    offset: 0,
+                    api_key: this.apiKey,
+                    query: query,
                 }
             })
             .then((response) => {
@@ -36,21 +38,23 @@ export default {
             });
         },
 
-        logInfo() {
-        console.log("stringa da AppHeader arrivata ad App");
-        console.log(`stringa arrivata da appheader${this.store.searchedInput}`);
-        },
+        // logInfo() {
+        // // console.log("stringa da AppHeader arrivata ad App");
+        // // stringa passata dallo store
+        // console.log(`stringa arrivata da appheader${this.store.searchedInput}`);
+        // },
     },
-
-    created() {
-    this.getFilms();
-  },
+// non serve dato che devo far partire la chiamata api solo dopo aver inserito un argomento nell'input search in AppHeader
+//     created() {
+//     this.getMovies();
+//   },
 
 }
 </script>
 
 <template>
-<AppHeader @searchedFilm="logInfo"/>
+<!-- Trasmetto la ricerca direttamente alla chiamata api -->
+<AppHeader @searchedFilm="getMovies(store.searchedInput)"/>
 <div class="container">
     <section class="container-card p-5 d-flex flex-column">
         <div class="row">
