@@ -1,13 +1,18 @@
 <script>
+import {store} from '../store'
+
 export default {
     data () {
         return {
+            store,
             inputFilm: '',
         }
     },
+    // creo un metodo per ricevere la stringa data da input e stamparla in console
     methods: {
-        inputMessage(inputFilm) {
-            console.log(inputFilm);
+        inputMessage(message) {
+            console.log(message);
+            this.$emit("searchedFilm");
         },
     }
 }
@@ -25,6 +30,7 @@ export default {
             <li>Browse by Languages</li>
         </ul>
 
+        <!-- Creo un input per poter ricevere un argomento che poi usero per la mia ricerca api -->
         <div class="d-flex">
             <input type="text" placeholder="search" @keyup.enter="inputMessage(inputFilm)" v-model="inputFilm">
         </div>

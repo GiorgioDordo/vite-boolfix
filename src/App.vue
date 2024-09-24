@@ -1,6 +1,7 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppCards from './components/AppCards.vue';
+import {store} from './store'
 import axios from 'axios';
 
 export default {
@@ -10,6 +11,7 @@ export default {
   },
     data() {
         return{
+            store,
             filmList: [],
             apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=04f50f140d73590d28e01335e3f1bec8&query=star+wars',
         }
@@ -32,7 +34,11 @@ export default {
             .finally(() => {
                 console.log("fine chiamata API")
             });
-        }
+        },
+
+        logInfo() {
+        console.log("stringa da AppHeader arrivata ad App");
+        },
     },
 
     created() {
@@ -43,7 +49,7 @@ export default {
 </script>
 
 <template>
-<AppHeader/>
+<AppHeader @searchedFilm="logInfo"/>
 <div class="container">
     <section class="container-card p-5 d-flex flex-column">
         <div class="row">
