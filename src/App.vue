@@ -38,6 +38,7 @@ export default {
 
         logInfo() {
         console.log("stringa da AppHeader arrivata ad App");
+        console.log(`stringa arrivata da appheader${this.store.searchedInput}`);
         },
     },
 

@@ -11,8 +11,9 @@ export default {
     // creo un metodo per ricevere la stringa data da input e stamparla in console
     methods: {
         inputMessage(message) {
-            console.log(message);
+            // console.log(message);
             this.$emit("searchedFilm");
+            this.store.searchedInput = message;
         },
     }
 }
@@ -32,7 +33,7 @@ export default {
 
         <!-- Creo un input per poter ricevere un argomento che poi usero per la mia ricerca api -->
         <div class="d-flex">
-            <input type="text" placeholder="search" @keyup.enter="inputMessage(inputFilm)" v-model="inputFilm">
+            <input type="text" placeholder="search" @keyup.enter="inputMessage(inputFilm)" v-model="store.searchedInput"> <!--tramite il v-model spedisca la stringa in store, dal quale poi posso prendere l'argomento e usarlo in app.vue-->
         </div>
 </header>
 </template>
