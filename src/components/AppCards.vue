@@ -1,12 +1,11 @@
 <script>
 import {store} from '../store'
-import "../../node_modules/flag/";
 export default {
     data() {
         return {
             store,
             // flag: 'https://flagcdn.com/16x12/' + this.cardObject.original_language + '.png',
-            flag: this.cardObject.original_language,
+            flag: 'fi fi-' + this.cardObject.original_language,
         }
     },
     props: {
@@ -25,7 +24,7 @@ export default {
         </article>
         <p>{{ cardObject.title }}</p>
         <p>{{ cardObject.original_title }}</p>
-        <img :src="this.flag" alt="">
+        <p :class="this.flag"></p>
         <p>{{ cardObject.release_date }}</p>
         <p>{{ cardObject.vote_average }}</p>
     </div>
