@@ -55,7 +55,7 @@ export default {
 <template>
 <!-- Trasmetto la ricerca direttamente alla chiamata api -->
 <AppHeader @searchedFilm="getMovies(store.searchedInput)"/>
-<div class="container">
+<div class="container-fluid">
     <section class="container-card p-5 d-flex flex-column">
         <div class="row">
           <AppCards v-for="cardFilms in filmList" :key="cardFilms.id" :cardObject="cardFilms"/>
