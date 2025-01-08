@@ -5,7 +5,7 @@ export default {
         return {
             store,
             // flag: 'https://flagcdn.com/16x12/' + this.cardObject.original_language + '.png',
-            flag: 'fi fi-' + this.cardObject.original_language,
+            // flag: 'fi fi-' + this.cardObject.original_language,
         }
     },
     props: {
@@ -31,4 +31,5 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../../node_modules/flag-icons/sass/flag-icons.scss';
 </style>
