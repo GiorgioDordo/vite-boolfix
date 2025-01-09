@@ -1,6 +1,7 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppCards from './components/AppCards.vue';
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 import {store} from './store'
 import axios from 'axios';
 
@@ -44,7 +45,7 @@ export default {
         // console.log(`stringa arrivata da appheader${this.store.searchedInput}`);
         // },
     },
-// non serve dato che devo far partire la chiamata api solo dopo aver inserito un argomento nell'input search in AppHeader
+// non serve, dato che devo far partire la chiamata api solo dopo aver inserito un argomento nell'input search in AppHeader
 //     created() {
 //     this.getMovies();
 //   },
