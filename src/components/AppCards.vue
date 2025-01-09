@@ -14,17 +14,23 @@ export default {
       required: true,
     }
   },
+  computed: {
+    posterUrl() {
+        // this is the base url for the images from the API documentation of TMDB
+      return `https://image.tmdb.org/t/p/w500${this.cardObject.poster_path}`;
+    }
+  }
   }
 </script>
 
 <template>
     <div class="col-6 col-md-3 col-lg-2 mb-4">
         <article class="card w-100">
-            <img :src="cardObject.poster_path" class="card-img-top" alt="">
+            <img :src="posterUrl" class="card-img-top" alt="">
         </article>
         <p>{{ cardObject.title }}</p>
         <p>{{ cardObject.original_title }}</p>
-        <p :class="this.flag"></p>
+        <!-- <p :class="this.flag"></p> -->
         <p>{{ cardObject.release_date }}</p>
         <p>{{ cardObject.vote_average }}</p>
     </div>
