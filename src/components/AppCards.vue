@@ -20,19 +20,36 @@ export default {
     },
 
     flagIcon() {
-        if (this.cardObject.original_language === 'en') {
-            return 'gb';
-        } else if (this.cardObject.original_language === 'ja') {
-            return 'jp'
-        } else if (this.cardObject.original_language === 'ko') {
-            return 'kr';
-        } else if (this.cardObject.original_language === 'zh') {
-            return 'cn';
-        } else if (this.cardObject.original_language === 'sh' || this.cardObject.original_language === 'sr') {
-            return 'rs';
-        } else {    
-            return this.cardObject.original_language;
+        switch (this.cardObject.original_language) {
+        case "en":
+            return "gb";
+        case "ja":
+            return "jp";
+        case "ko":
+            return "kr";
+        case "zh":
+            return "cn";
+        case "sh" || "sr":
+            return "rs";
+        case "hi":
+            return "in";
+
+        default:
+        return this.cardObject.original_language;
         }
+    },
+
+    fullStars() {
+      return Math.floor(this.cardObject.vote_average / 2);
+    },
+    // if the remainder(resto) is greater or equal to 1, then we have a half star
+    // italiano: in questa operazione viene calcolato il resto e se è maggiore o uguale a 1(siccome una stella contiene 2 voti), allora abbiamo mezza stella
+    halfStars() {
+      return this.cardObject.vote_average % 2 >= 1 ? 1 : 0;
+    },
+    // to calculate the empty stars, we subtract the full stars and the half stars from 5
+    emptyStars() {
+      return 5 - this.fullStars - this.halfStars;
     }
   }
   }
@@ -44,13 +61,18 @@ export default {
             <img :src="posterUrl" class="card-img-top" alt="">
         </article>
         <p>{{ cardObject.title }}</p>
-        <p>{{ cardObject.original_title }}</p>
         <span :class="`fi fi-${flagIcon}`"></span>
         <p>{{ cardObject.release_date }}</p>
-        <p>{{ cardObject.vote_average }}</p>
+        <p id="vote"><b>Vote</b> : 
+            <i class="fa-solid fa-star" v-for="n in fullStars" :key="'full-' + n"></i>
+      <i class="fa-solid fa-star-half-stroke" v-if="halfStars" :key="'half'"></i>
+      <i class="fa-regular fa-star" v-for="n in emptyStars" :key="'empty-' + n"></i>
+        </p>
     </div>
 </template>
 
 <style lang="scss" scoped>
- 
+ p {
+     color: white;
+ }
 </style>

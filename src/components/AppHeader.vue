@@ -21,12 +21,12 @@ export default {
 <header class="d-flex justify-content-between align-items-center">
         <ul class="list-unstyled d-flex align-items-center gap-3">
             <li class="boolflix">BOOLFLIX</li>
-            <li>Home</li>
-            <li>TV Shows</li>
-            <li>Movies</li>
-            <li>New & Popular</li>
-            <li>My List</li>
-            <li>Browse by Languages</li>
+            <li class="section">Home</li>
+            <li class="section">TV Shows</li>
+            <li class="section">Movies</li>
+            <li class="section">New & Popular</li>
+            <li class="section">My List</li>
+            <li class="section">Browse by Languages</li>
         </ul>
 
         <!-- Creo un input per poter ricevere un argomento che poi usero per la mia ricerca api -->
@@ -46,6 +46,10 @@ header {
 
     ul {
         margin: 0;
+
+        .section{
+         cursor: pointer;
+    }
 
        .boolflix {
         color: red;
