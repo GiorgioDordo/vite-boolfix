@@ -64,9 +64,9 @@ export default {
         <span :class="`fi fi-${flagIcon}`"></span>
         <p>{{ cardObject.release_date }}</p>
         <p id="vote"><b>Vote</b> : 
-            <i class="fa-solid fa-star" v-for="n in fullStars" :key="'full-' + n"></i>
-      <i class="fa-solid fa-star-half-stroke" v-if="halfStars" :key="'half'"></i>
-      <i class="fa-regular fa-star" v-for="n in emptyStars" :key="'empty-' + n"></i>
+            <i class="fa-solid fa-star" v-for="n in fullStars"></i>
+      <i class="fa-solid fa-star-half-stroke" v-if="halfStars"></i>
+      <i class="fa-regular fa-star" v-for="n in emptyStars"></i>
         </p>
     </div>
 </template>
